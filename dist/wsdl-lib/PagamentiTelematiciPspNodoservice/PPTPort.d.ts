@@ -196,7 +196,7 @@ export interface IcdInfoWispOutput {
 export declare enum codificaInfrastrutturaPSPEnum {
     QR_CODE = "QR-CODE",
     BARCODE_GS1_128 = "BARCODE-GS1-128",
-    BARCODE_128_AIM = "BARCODE-128-AIM",
+    BARCODE_128_AIM = "BARCODE-128-AIM"
 }
 export interface InodoInviaRichiestaRevocaOutput {
 }
@@ -397,7 +397,7 @@ export declare namespace PPTPortTypes {
     }
     enum Esito {
         OK = "OK",
-        KO = "KO",
+        KO = "KO"
     }
     const envelopeKey = "soapenv";
 }

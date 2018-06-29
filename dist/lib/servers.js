@@ -11,33 +11,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const soap = require("soap");
 const wsdl_paths = require("./wsdl-paths");
 const utils_1 = require("./utils");
-// import interface for "PSP" services
-const FespPspService = require("../wsdl-lib/FespPspService/PSPPort");
-exports.FespPspService = FespPspService;
+// import interface for "CD" and "PSP" services
+const FespCdService = require("../wsdl-lib/FespCdService/FespCdPortType");
+exports.FespCdService = FespCdService;
 const AvvisiDigitaliService = require("../wsdl-lib/AvvisiDigitaliService/PPTPort");
 exports.AvvisiDigitaliService = AvvisiDigitaliService;
 /**
- * Creates a server for the FespPsp service.
+ * Creates a server for the FespCD service.
  *
  * This function mostly wraps the `soap.listen(...)` method.
  * @see https://github.com/vpulim/node-soap#soaplistenserver-path-services-wsdl---create-a-new-soap-server-that-listens-on-path-and-provides-services
  *
  * @param server    See soap.listen documentation
  * @param path      See soap.listen documentation
- * @param fespPspHandlers  An object that implements the IPSPPortSoap interface
+ * @param fespCdHandlers  An object that implements the IFespCdPortTypeSoap interface
  */
-function attachFespPspServer(server, path, fespPspHandlers) {
+function attachFespCdServer(server, path, fespCdHandlers) {
     return __awaiter(this, void 0, void 0, function* () {
-        const wsdl = yield utils_1.readWsdl(wsdl_paths.FespPspService_WSDL_PATH);
+        const wsdl = yield utils_1.readWsdl(wsdl_paths.FespCdService_WSDL_PATH);
         const service = {
-            FespPspService: {
-                PSPPort: fespPspHandlers
+            FespCdService: {
+                FespCdPortType: fespCdHandlers
             }
         };
         return soap.listen(server, path, service, wsdl);
     });
 }
-exports.attachFespPspServer = attachFespPspServer;
+exports.attachFespCdServer = attachFespCdServer;
 /**
  * Creates a server for the AvvisiDigitali service.
  *

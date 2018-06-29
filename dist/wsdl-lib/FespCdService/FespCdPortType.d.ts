@@ -41,6 +41,6 @@ export declare namespace FespCdPortTypeTypes {
 }
 export declare enum Esito {
     OK = "OK",
-    KO = "KO",
+    KO = "KO"
 }
 export declare const envelopeKey = "soapenv";
